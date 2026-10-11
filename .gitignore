@@ -1,0 +1,21 @@
+# Dataset (PPG-DaLiA, ~2.7 GB) -- download separately, see data/README.md
+data/*
+!data/README.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Model artefacts (optional extension)
+*.pt
+*.h5
+*.tflite
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

@@ -1,0 +1,13 @@
+numpy
+scipy
+matplotlib
+scikit-learn
+pandas
+jupyter
+
+# Optional (Steps 8-9): DTW-based SQI and fiducial features
+# pyPPG
+
+# Optional extension (Steps 11-13): compact CNN + int8 quantization
+# torch
+# tensorflow
