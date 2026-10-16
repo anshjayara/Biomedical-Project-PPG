@@ -96,9 +96,24 @@ pip install -r requirements.txt
 
 Then download PPG-DaLiA into `data/` as described in [`data/README.md`](data/README.md).
 
-## Roadmap
+## Project progress
 
-- [ ] Step 1 – Load and inspect PPG-DaLiA
+**Current phase:** planning complete, starting implementation (Step 1). No experimental results yet.
+
+### Phase 0 – Planning and setup
+
+- [x] Literature review of 7 papers (summary table in [`docs/project_plan.md`](docs/project_plan.md))
+- [x] Problem statement and research question defined
+- [x] Full project plan written (13 steps, evaluation plan, limitations)
+- [x] Dataset chosen: PPG-DaLiA
+- [x] GitHub repository and code structure set up
+- [x] Sensor circuit, optical path and pipeline diagrams ([`docs/figures/`](docs/figures/))
+- [x] Python environment set up (NumPy, SciPy, Matplotlib, pandas, scikit-learn)
+- [x] PPG-DaLiA downloaded (2.7 GB)
+
+### Implementation roadmap
+
+- [ ] Step 1 – Load and inspect PPG-DaLiA *(in progress: loader and exploration script written, not yet run)*
 - [ ] Step 2 – Synchronise and window (8 s, 2 s shift)
 - [ ] Step 3 – Pre-process
 - [ ] Step 4 – Stage 0 baseline
