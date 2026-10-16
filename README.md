@@ -15,6 +15,50 @@ too poor to trust. Every stage is evaluated against ECG-derived heart rate on th
 The full project plan (background, problem statement, literature, step-by-step method, evaluation
 plan, limitations and references) is in [`docs/project_plan.md`](docs/project_plan.md).
 
+## Dataset: PPG-DaLiA
+
+We use **PPG-DaLiA** (Reiss et al., *Sensors* 2019), a public dataset for PPG-based heart rate
+estimation during daily life. It is available from the UCI Machine Learning Repository.
+
+| | |
+|---|---|
+| Subjects | 15 (Fitzpatrick skin types II–IV) |
+| Duration | about 2.5 h per subject, ~65 000 windows in total (S6: first 90 min only) |
+| Wrist device | Empatica E4: PPG (BVP) at 64 Hz, 3-axis accelerometer at 32 Hz |
+| Chest device | RespiBAN: ECG at 700 Hz |
+| Ground truth | HR from hand-corrected ECG R-peaks, one value per 8 s window with a 2 s shift |
+| Activities | sitting, stairs, table soccer, cycling, driving, lunch, walking, working, plus transitions |
+| HR range | 41–187 BPM |
+
+Why this dataset: the wrist PPG and accelerometer come from the same watch, the ECG reference
+is accurate, and the activities include both rest and natural movement. The original paper
+also argues for leave-one-subject-out evaluation and publishes classical baselines (SpaMa
+15.56, SpaMaPlus 11.06 BPM MAE), so we have a reference point. Download instructions are in
+[`data/README.md`](data/README.md).
+
+## Figures
+
+**Reflectance PPG: what the sensor sees**
+
+![Optical path](docs/figures/01_ppg_optical_path.png)
+
+**Circuit of a typical PPG front end.** This is a representative design, not the Empatica E4's
+internal circuit, which is not published. Component labels are generic.
+
+![PPG sensor circuit](docs/figures/02_ppg_sensor_circuit.png)
+
+**Our proposed pipeline**
+
+![Proposed pipeline](docs/figures/03_proposed_pipeline.png)
+
+**Why accelerometer-aided peak removal helps** (illustration, not measured data)
+
+| Normal estimator | Our pipeline |
+|---|---|
+| ![Normal](docs/figures/04a_spectrum_normal.png) | ![Ours](docs/figures/04b_spectrum_ours.png) |
+
+SVG versions of every figure are in [`docs/figures/`](docs/figures/) for use in the report.
+
 ## Pipeline
 
 | Stage | Method | Module |

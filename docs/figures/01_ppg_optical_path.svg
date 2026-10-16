@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="250" viewBox="0 0 640 250" role="img" aria-label="Cross-section of a wrist under a reflectance PPG sensor. Green light from the LED travels into the tissue, is absorbed partly by pulsing arteries, and the rest returns to the photodiode on the same side.">
+<style>
+svg{color:#17252A;font-family:"IBM Plex Mono",Menlo,Consolas,monospace}
+.w{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.wthin{fill:none;stroke:currentColor;stroke-width:1.2}
+.box{fill:#FFFFFF;stroke:currentColor;stroke-width:1.6}
+.solid{fill:currentColor}
+.t{fill:currentColor;font-size:12px}
+.ts{fill:#56686D;font-size:11px}
+.tb{fill:currentColor;font-size:13px;font-weight:500}
+.red{stroke:#C2303B}.redf{fill:#C2303B}
+.teal{stroke:#0E7C7B}.tealf{fill:#0E7C7B}
+.amber{stroke:#93600A}.amberf{fill:#93600A}
+.dash{stroke-dasharray:5 4}
+.mutedS{stroke:#56686D}
+</style>
+<rect width="640" height="250" fill="#FFFFFF"/>
+        <defs>
+          <marker id="ah1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="redf"/></marker>
+        </defs>
+        <!-- tissue layers -->
+        <rect x="40" y="78" width="420" height="22" style="fill:#F2DCD2"/>
+        <rect x="40" y="100" width="420" height="70" style="fill:#EBC9BC"/>
+        <rect x="40" y="170" width="420" height="50" style="fill:#F4E7CF"/>
+        <!-- arteries -->
+        <circle cx="200" cy="135" r="9" class="redf" opacity=".85"/>
+        <circle cx="300" cy="128" r="7" class="redf" opacity=".85"/>
+        <circle cx="250" cy="150" r="5" class="redf" opacity=".85"/>
+        <!-- sensor housing -->
+        <rect x="90" y="40" width="320" height="34" rx="4" class="box"/>
+        <rect x="125" y="62" width="40" height="12" class="solid"/>
+        <rect x="335" y="62" width="40" height="12" class="solid"/>
+        <text x="145" y="56" text-anchor="middle" class="t">LED</text>
+        <text x="355" y="56" text-anchor="middle" class="t">PD</text>
+        <!-- light path -->
+        <path d="M150,78 C165,175 335,175 350,78" class="w red dash" marker-end="url(#ah1)"/>
+        <!-- gap / motion -->
+        <line x1="70" y1="40" x2="70" y2="76" class="w teal"/>
+        <path d="M64,46 L70,38 L76,46 M64,70 L70,78 L76,70" class="w teal"/>
+        <text x="62" y="30" text-anchor="middle" class="t" style="fill:#0E7C7B">gap moves</text>
+        <!-- labels -->
+        <text x="476" y="60" class="t">Sensor on wrist</text>
+        <text x="476" y="93" class="t">Epidermis</text>
+        <text x="476" y="128" class="t">Dermis + arteries</text>
+        <text x="476" y="144" class="ts">pulsing → AC (~1–2 %)</text>
+        <text x="476" y="196" class="t">Tissue, veins, bone</text>
+        <text x="476" y="212" class="ts">steady → DC</text>
+        <text x="320" y="240" text-anchor="middle" class="ts">green light, ~530 nm · reflectance mode (LED and photodiode on the same side)</text>
+      </svg>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="240" viewBox="0 0 500 240" role="img" aria-label="Normal estimator: the PPG spectrum has a tall motion peak at 1.8 Hz matching the accelerometer and a smaller heart peak at 2.3 Hz; picking the tallest peak gives 108 BPM, which is wrong.">
+<style>
+svg{color:#17252A;font-family:"IBM Plex Mono",Menlo,Consolas,monospace}
+.w{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.wthin{fill:none;stroke:currentColor;stroke-width:1.2}
+.box{fill:#FFFFFF;stroke:currentColor;stroke-width:1.6}
+.solid{fill:currentColor}
+.t{fill:currentColor;font-size:12px}
+.ts{fill:#56686D;font-size:11px}
+.tb{fill:currentColor;font-size:13px;font-weight:500}
+.red{stroke:#C2303B}.redf{fill:#C2303B}
+.teal{stroke:#0E7C7B}.tealf{fill:#0E7C7B}
+.amber{stroke:#93600A}.amberf{fill:#93600A}
+.dash{stroke-dasharray:5 4}
+.mutedS{stroke:#56686D}
+</style>
+<rect width="500" height="240" fill="#FFFFFF"/>
+          <text x="20" y="22" class="tb">Normal: pick the tallest peak</text>
+          <line x1="40" y1="180" x2="480" y2="180" class="wthin"/>
+          <text x="40" y="198" text-anchor="middle" class="ts">0.5</text>
+          <text x="166" y="198" text-anchor="middle" class="ts">1.5</text>
+          <text x="291" y="198" text-anchor="middle" class="ts">2.5</text>
+          <text x="417" y="198" text-anchor="middle" class="ts">3.5</text>
+          <text x="470" y="198" text-anchor="end" class="ts">Hz</text>
+          <path d="M40,176 C120,174 175,172 186,120 C192,80 197,52 203,52 C209,52 214,80 220,120 C228,165 240,165 250,140 C256,118 261,100 266,100 C271,100 276,118 282,140 C292,170 340,175 480,176" class="w red" style="fill:none"/>
+          <path d="M40,178 C150,178 180,176 190,130 C196,100 199,90 203,90 C207,90 210,100 216,130 C226,176 260,178 480,178" class="w teal dash"/>
+          <circle cx="203" cy="52" r="4" class="redf"/>
+          <text x="210" y="46" class="t">picked: 1.8 Hz = 108 BPM ✗</text>
+          <text x="272" y="96" class="ts">real heart 2.3 Hz</text>
+          <text x="120" y="226" class="ts">— PPG   - - accelerometer (arm swing)</text>
+        </svg>

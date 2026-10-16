@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="390" viewBox="0 0 1100 390" role="img" aria-label="Pipeline: PPG and accelerometer are band-passed and windowed. PPG goes through NLMS motion cancellation, spectral motion-peak removal, heart-rate tracking and a quality gate to give HR plus a trust flag. The accelerometer feeds the NLMS and peak-removal stages. Quality indicators feed the gate. An FFT baseline runs alongside for comparison, and everything is scored by leave-one-subject-out evaluation against ECG.">
+<style>
+svg{color:#17252A;font-family:"IBM Plex Mono",Menlo,Consolas,monospace}
+.w{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.wthin{fill:none;stroke:currentColor;stroke-width:1.2}
+.box{fill:#FFFFFF;stroke:currentColor;stroke-width:1.6}
+.solid{fill:currentColor}
+.t{fill:currentColor;font-size:12px}
+.ts{fill:#56686D;font-size:11px}
+.tb{fill:currentColor;font-size:13px;font-weight:500}
+.red{stroke:#C2303B}.redf{fill:#C2303B}
+.teal{stroke:#0E7C7B}.tealf{fill:#0E7C7B}
+.amber{stroke:#93600A}.amberf{fill:#93600A}
+.dash{stroke-dasharray:5 4}
+.mutedS{stroke:#56686D}
+</style>
+<rect width="1100" height="390" fill="#FFFFFF"/>
+        <defs>
+          <marker id="pa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="solid"/></marker>
+          <marker id="pat" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="tealf"/></marker>
+          <marker id="paa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="amberf"/></marker>
+        </defs>
+
+        <!-- inputs -->
+        <rect x="10" y="120" width="110" height="56" rx="4" class="box red"/>
+        <text x="65" y="144" text-anchor="middle" class="tb" style="fill:#C2303B">Wrist PPG</text>
+        <text x="65" y="162" text-anchor="middle" class="ts">64 Hz</text>
+        <rect x="10" y="270" width="110" height="56" rx="4" class="box teal"/>
+        <text x="65" y="294" text-anchor="middle" class="tb" style="fill:#0E7C7B">Accelerometer</text>
+        <text x="65" y="312" text-anchor="middle" class="ts">3-axis, 32 Hz</text>
+
+        <!-- preprocessing -->
+        <rect x="150" y="120" width="140" height="56" rx="4" class="box"/>
+        <text x="220" y="144" text-anchor="middle" class="tb">Band-pass</text>
+        <text x="220" y="162" text-anchor="middle" class="ts">0.5–4 Hz · 8 s / 2 s</text>
+        <rect x="150" y="270" width="140" height="56" rx="4" class="box"/>
+        <text x="220" y="294" text-anchor="middle" class="tb">Band-pass</text>
+        <text x="220" y="312" text-anchor="middle" class="ts">resample to 64 Hz</text>
+        <line x1="120" y1="148" x2="150" y2="148" class="w" marker-end="url(#pa)"/>
+        <line x1="120" y1="298" x2="150" y2="298" class="w teal" marker-end="url(#pat)"/>
+
+        <!-- stages -->
+        <rect x="320" y="120" width="140" height="56" rx="4" class="box"/>
+        <text x="390" y="144" text-anchor="middle" class="tb">Stage 1 · NLMS</text>
+        <text x="390" y="162" text-anchor="middle" class="ts">subtract motion</text>
+        <rect x="490" y="120" width="140" height="56" rx="4" class="box"/>
+        <text x="560" y="144" text-anchor="middle" class="tb">Stage 2 · Peaks</text>
+        <text x="560" y="162" text-anchor="middle" class="ts">remove motion peaks</text>
+        <rect x="660" y="120" width="140" height="56" rx="4" class="box"/>
+        <text x="730" y="144" text-anchor="middle" class="tb">Stage 3 · Track</text>
+        <text x="730" y="162" text-anchor="middle" class="ts">smooth, limit jumps</text>
+        <rect x="830" y="120" width="120" height="56" rx="4" class="box amber"/>
+        <text x="890" y="144" text-anchor="middle" class="tb" style="fill:#93600A">Stage 4 · Gate</text>
+        <text x="890" y="162" text-anchor="middle" class="ts">trust or hold</text>
+        <line x1="290" y1="148" x2="320" y2="148" class="w" marker-end="url(#pa)"/>
+        <line x1="460" y1="148" x2="490" y2="148" class="w" marker-end="url(#pa)"/>
+                <line x1="630" y1="148" x2="660" y2="148" class="w" marker-end="url(#pa)"/>
+                <line x1="800" y1="148" x2="830" y2="148" class="w" marker-end="url(#pa)"/>
+
+        <!-- output -->
+        <rect x="980" y="120" width="110" height="56" rx="4" class="box"/>
+        <text x="1035" y="144" text-anchor="middle" class="tb">HR (BPM)</text>
+        <text x="1035" y="162" text-anchor="middle" class="ts">+ trust flag</text>
+        <line x1="950" y1="148" x2="980" y2="148" class="w" marker-end="url(#pa)"/>
+
+        <!-- accelerometer feeds -->
+        <path d="M290,298 L390,298 L390,178" class="w teal" marker-end="url(#pat)"/>
+        <path d="M390,298 L560,298 L560,178" class="w teal" marker-end="url(#pat)"/>
+        <text x="398" y="232" class="t" style="fill:#0E7C7B">motion reference</text>
+        <text x="568" y="232" class="t" style="fill:#0E7C7B">ACC spectrum peaks</text>
+
+        <!-- quality indicators -->
+        <path d="M220,120 L220,60 L890,60 L890,118" class="w amber" marker-end="url(#paa)"/>
+        <text x="555" y="52" text-anchor="middle" class="t" style="fill:#93600A">quality indicators: power ratio · perfusion index · AC SNR</text>
+        <path d="M890,176 L890,215" class="w amber dash"/>
+        <text x="882" y="206" text-anchor="end" class="ts">reject → hold last HR</text>
+
+        <!-- baseline -->
+        <path d="M245,176 L245,250 L320,250" class="w dash mutedS"/>
+        <text x="252" y="232" class="ts">Stage 0 · FFT</text>
+
+        <!-- evaluation -->
+        <rect x="660" y="300" width="430" height="66" rx="4" class="box"/>
+        <text x="875" y="326" text-anchor="middle" class="tb">Evaluation vs ECG heart rate</text>
+        <text x="875" y="346" text-anchor="middle" class="ts">LOSO · MAE · Pearson · Bland-Altman · coverage</text>
+        <path d="M1035,176 L1035,300" class="w" marker-end="url(#pa)"/>
+        <path d="M320,250 L620,250 L620,333 L660,333" class="w dash mutedS" marker-end="url(#pa)"/>
+      </svg>
